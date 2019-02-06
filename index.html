@@ -25,7 +25,6 @@
       .love {
         color: black;
         border-color: black;
-        display: block;
       }
       .main {
         min-height: 90vh;
@@ -66,7 +65,10 @@
       <div id="assignments"></div>
     </div>
     <i>note that this site is made bad on purpose</i>
-    <a href="https://aeio.io" class="love">made with <span class="heart">❤</span> by loop</a>
+    <br />
+    <a href="https://aeio.io" class="love"
+      >made with <span class="heart">❤</span> by loop</a
+    >
     <!-- http://tholman.com/github-corners/ -->
     <a
       href="https://github.com/nilaeus/mrhulsey"
@@ -143,51 +145,91 @@
               { key: i },
               React.createElement('td', { className: 'name' }, assignment[0]),
               React.createElement('td', null, assignment[1]),
-              React.createElement('td', {className: new Date(assignment[2] + '/19') < today ? 'past' : 'future'}, assignment[2]),
-              React.createElement('td', {className: new Date(assignment[3] + '/19') < today ? 'past' : 'future'}, assignment[3]),
-              React.createElement('td', {className: new Date(assignment[4] + '/19') < today ? 'past' : 'future'}, assignment[4]),
-              React.createElement('td', {className: new Date(assignment[5] + '/19') < today ? 'past' : 'future'}, assignment[5]),
-              React.createElement('td', {className: new Date(assignment[6] + '/19') < today ? 'past' : 'future'}, assignment[6]),
-              React.createElement('td', {className: new Date(assignment[7] + '/19') < today ? 'past' : 'future'}, assignment[7]),
+              React.createElement(
+                'td',
+                {
+                  className:
+                    new Date(assignment[2] + '/19') < today ? 'past' : 'future'
+                },
+                assignment[2]
+              ),
+              React.createElement(
+                'td',
+                {
+                  className:
+                    new Date(assignment[3] + '/19') < today ? 'past' : 'future'
+                },
+                assignment[3]
+              ),
+              React.createElement(
+                'td',
+                {
+                  className:
+                    new Date(assignment[4] + '/19') < today ? 'past' : 'future'
+                },
+                assignment[4]
+              ),
+              React.createElement(
+                'td',
+                {
+                  className:
+                    new Date(assignment[5] + '/19') < today ? 'past' : 'future'
+                },
+                assignment[5]
+              ),
+              React.createElement(
+                'td',
+                {
+                  className:
+                    new Date(assignment[6] + '/19') < today ? 'past' : 'future'
+                },
+                assignment[6]
+              ),
+              React.createElement(
+                'td',
+                {
+                  className:
+                    new Date(assignment[7] + '/19') < today ? 'past' : 'future'
+                },
+                assignment[7]
+              )
             )
-          let first = () => React.createElement(
-            'tr',
-            {key: Math.round(Math.random() * 100), className: 'first'},
-            React.createElement('td', null, 'name'),
-            React.createElement('td', null, 'due'),
-            React.createElement('td', null, '1st'),
-            React.createElement('td', null, '2nd'),
-            React.createElement('td', null, '4th'),
-            React.createElement('td', null, '5th'),
-            React.createElement('td', null, '7th'),
-            React.createElement('td', null, '8th'),
-          )
-          let traditional = [first(), ...this.state.traditional.map(assignments)]
+          let first = () =>
+            React.createElement(
+              'tr',
+              { key: Math.round(Math.random() * 100), className: 'first' },
+              React.createElement('td', null, 'name'),
+              React.createElement('td', null, 'due'),
+              React.createElement('td', null, '1st'),
+              React.createElement('td', null, '2nd'),
+              React.createElement('td', null, '4th'),
+              React.createElement('td', null, '5th'),
+              React.createElement('td', null, '7th'),
+              React.createElement('td', null, '8th')
+            )
+          let traditional = [
+            first(),
+            ...this.state.traditional.map(assignments)
+          ]
           let flipped = [first(), ...this.state.flipped.map(assignments)]
-          return this.state.show ? React.createElement(
-            'div',
-            null,
-            React.createElement(
-              'h2',
-              null,
-              'traditional'
-            ),
-            React.createElement(
-              'table',
-              null,
-              React.createElement('tbody', null, traditional)
-            ),
-            React.createElement(
-              'h2',
-              null,
-              'flipped'
-            ),
-            React.createElement(
-              'table',
-              null,
-              React.createElement('tbody', null, flipped)
-            ),
-          ) : null
+          return this.state.show
+            ? React.createElement(
+                'div',
+                null,
+                React.createElement('h2', null, 'traditional'),
+                React.createElement(
+                  'table',
+                  null,
+                  React.createElement('tbody', null, traditional)
+                ),
+                React.createElement('h2', null, 'flipped'),
+                React.createElement(
+                  'table',
+                  null,
+                  React.createElement('tbody', null, flipped)
+                )
+              )
+            : null
         }
         componentWillMount() {
           const traditional = fetch(
